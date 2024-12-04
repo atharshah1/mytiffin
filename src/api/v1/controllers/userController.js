@@ -1,7 +1,7 @@
 import { User } from '../models/userModel.js';
-import { generateToken } from '../../utils/jwtUtils.js';
+import { generateToken } from '../../../utils/jwtUtils.js';
 import bcrypt from 'bcryptjs';
-import { AppError } from '../../utils/AppError.js';
+import { AppError } from '../../../utils/AppError.js';
 
 // Register a new user
 export const registerUser = async (req, res, next) => {
