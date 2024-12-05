@@ -5,9 +5,17 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "prisma:generate-schema": "node  src/prisma/generateSchema.js",
+    "prisma:generate": "npm run prisma:generate-schema && prisma generate",
+    "prisma:migrate": "npm run prisma:generate-schema && prisma migrate dev --schema=src/prisma/schema.prisma",
+    "prisma:deploy": "npm run prisma:generate-schema && prisma migrate deploy --schema=src/prisma/schema.prisma"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.17.1",
@@ -15,7 +23,8 @@
     "mongoose": "^8.8.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "prisma": "^6.0.1"
   },
   "type": "module",
   "author": "Athar, Yash",
